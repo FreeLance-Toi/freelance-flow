@@ -1,0 +1,96 @@
+@use "../book"
+
+.header
+  top: 0
+  width: 100%
+  z-index: 998
+  display: flex
+  position: sticky
+  align-items: center
+  padding: 1.25em 5em
+  color: book.$bg-100
+  transition-duration: 200ms
+  justify-content: space-between
+  background-color: book.$primary
+  transition-timing-function: ease-in-out
+  transition-property: color, background-color, box-shadow
+
+  &.scrolled
+    color: book.$txt-100
+    background-color: book.$bg-100
+    box-shadow: 0 .5em 1.5em 0 book.$shadow-tint
+
+  &__brand
+    gap: .75em
+    display: flex
+    align-items: center
+
+    &--logo
+      height: 1.5em
+
+    &--name
+      font-weight: 900
+      font-size: 1.25em
+      font-family: book.$font-headlines
+
+  &__menu
+    display: flex
+    align-items: center
+
+    &__element
+      gap: .5em
+      display: flex
+      line-height: 100%
+      align-items: center
+      padding: .75em 1.5em
+
+    &__link
+      font-weight: 500
+
+    &__dpd
+      position: relative
+
+      &--title
+        font-weight: 500
+
+        &--icon
+          height: 1em
+
+        &:hover
+          + .header__menu__dpd__content
+            opacity: 1
+            transform: none
+            pointer-events: all
+
+      &__content
+        right: 0
+        top: 100%
+        opacity: 0
+        display: flex
+        padding: 1em
+        width: fit-content
+        position: absolute
+        border-radius: 1em
+        color: book.$txt-100
+        pointer-events: none
+        transition-duration: 400ms
+        transform: translateY(-.5em)
+        background-color: book.$bg-100
+        transition-timing-function: ease-in-out
+        transition-property: transform, opacity
+        box-shadow: 0 .5em 1.5em 0 book.$shadow-tint
+
+        &:hover
+          opacity: 1
+          transform: none
+          pointer-events: all
+
+        &--link
+          display: flex
+          padding: .5em 1em
+          border-radius: .5em
+          white-space: nowrap
+          transition: background-color 200ms ease-in-out
+
+          &:hover
+            background-color: book.$bg-50

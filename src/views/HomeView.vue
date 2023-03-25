@@ -1,5 +1,6 @@
 <template>
   <div class="home">
+    <section class="home__hero"></section>
   </div>
 </template>
 
@@ -12,4 +13,11 @@ export default defineComponent({
 </script>
 
 <style lang="sass">
+@use "../assets/css/book"
+.home
+  height: 200vh
+  
+  &__hero
+    height: 50vh
+    background-color: book.$primary
 </style>
